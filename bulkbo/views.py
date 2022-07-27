@@ -30,3 +30,6 @@ def registerview(request):
 class LoginView(auth_views.LoginView):
     form_class = LoginForm
     template_name = 'login.html'
+
+def configview(request):
+    return render(request,'config.html')
