@@ -10,7 +10,7 @@
   <!-- MDB icon -->
    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/VDzGn5V/295938547-123561940395738-2673544208791713515-n-removebg-preview.png">
     <!-- Navbar -->
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-blue shadow-5">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-5">
                         <!-- Container wrapper -->
                         <div class="container-fluid">
                             <div class="d-flex">
@@ -19,10 +19,11 @@
                             <!-- Collapsible wrapper -->
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <!-- Left links -->
-                                <ul class="navbar-nav me-auto mb-2 ms-2 ps-1 ms-lg-0 ps-lg-0 mb-lg-0">
-                                    <li class="nav-item"> <a class="nav-link" href="{% url 'home' %}" aria-controls="#picker-editor"><img src="https://cdn-icons-png.flaticon.com/512/3208/3208668.png" width="35px"></a> </li>
-                                    <li class="nav-item"> <a class="nav-link" href="" aria-controls="#picker-editor"><img src="https://cdn-icons-png.flaticon.com/512/3132/3132084.png  " width="35px"></a> </li>
-                                    <li class="nav-item"> <a class="nav-link" href="" aria-controls="#picker-editor"><img src="https://cdn-icons.flaticon.com/png/512/2602/premium/2602555.png?token=exp=1658988489~hmac=91c5a3871e8717a36a648e03d089a947" width="35px"></a> </li>
+                               <ul class="navbar-nav me-auto mb-2 ms-2 ps-1 ms-lg-0 ps-lg-0 mb-lg-0">
+                                    <li class="nav-item"> <a class="btn  btn-block-primary px-3 mb-1 me-2" href="{% url 'home' %}" aria-controls="#picker-editor">Home</a> </li>
+                                    <li class="nav-item"> <a class="btn  btn-block primary px-3 mb-1 me-2" href="" aria-controls="#picker-editor">Dashboard</a> </li>
+                                    <li class="nav-item"> <a class="btn  btn-block-primary px-3 mb-1 me-2" href="{% url 'config' %}" aria-controls="#picker-editor">Settings</a> </li>
+                                    <li class="nav-item"> <a class="btn  btn-block-primary px-3 mb-1 me-2" href="" aria-controls="#picker-editor">Reports</a> </li>
                                     {% if request.path == '/' %}
                                         <li class="nav-item"> <a class="nav-link" href="" aria-controls="#picker-editor" style="color: #1abe5c">{{ balance }}$</a> </li>
                                     {% else %}
@@ -32,11 +33,11 @@
                             </div>
                             <!-- Collapsible wrapper --> <!-- Right elements -->
                            <div class="d-flex align-items-center"> {% if request.path == '/register/' %}
-                               <a type="button" href="{% url 'login' %}" class="mb-1 me-lg-3" aria-controls="#picker-editor"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828466.png" width="35px"></a> </div>
+                               <a type="button" href="{% url 'login' %}" class="btn  btn-block-dark px-3 mb-1 me-2" aria-controls="#picker-editor">Login</a>
                                {% elif request.path == '/login/' %}
-                               <a type="button" href="{% url 'register' %}" class="mb-1 me-lg-3" aria-controls="#picker-editor"><img src="https://cdn-icons.flaticon.com/png/512/880/premium/880440.png?token=exp=1658989649~hmac=5538bd32367eaaf91d699009691c1d9a" width="35px"></a> </div>
+                               <a type="button" href="{% url 'register' %}" class="btn  btn-block-dark mb-1 me-lg-3" aria-controls="#picker-editor">Sign up</a> </div>
                                {% else %}
-                               <a type="button" href="{% url 'logout' %}" class="px-3 mb-1 me-2" aria-controls="#picker-editor"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828490.png" width="35px"></a>
+                               <a type="button" href="{% url 'logout' %}" class="btn  btn-block-dark px-3 mb-1 me-2" aria-controls="#picker-editor">Logout</a>
                             {% endif %}<!-- Right elements -->
                         </div>
                         <!-- Container wrapper -->
@@ -54,6 +55,60 @@
 <body>
 {% block content %}
 {% endblock %}
+<footer class="bg-primary text-white text-center text-lg-start">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">About Bulkbo</h5>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+          molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
+          voluptatem veniam, est atque cumque eum delectus sint!
+        </p>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Facebook</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="#!" class="text-white">Link 1</a>
+          </li>
+
+        </ul>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase mb-0">Youtube</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" class="text-white">Link 1</a>
+          </li>
+
+        </ul>
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2022 Copyright:
+    <a class="text-white" href="https://bulkbo.com">Bulkbo.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
   <script type="text/javascript" src="{% static 'js/mdb.min.js'  %} "></script>
   <!-- Custom scripts -->
   <script type="text/javascript"></script>
