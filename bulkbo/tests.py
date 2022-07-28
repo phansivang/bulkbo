@@ -1,4 +1,5 @@
 from django.test import TestCase
+from .models import senderprofile
 
 
-# Create your tests here.
+

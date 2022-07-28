@@ -2,10 +2,8 @@ import requests
 from django.contrib import messages
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
-from django.views import generic
-
+from .models import senderprofile
 from .forms import register, LoginForm
 
 
@@ -38,3 +36,10 @@ class LoginView(auth_views.LoginView):
 
 def configview(request):
     return render(request, 'config.html')
+
+def testing(request):
+    x = senderprofile.objects.all()
+    for i in x:
+        print(i.sender_name)
+        print(len(i.number_list))
+    return render(request,'home.html',{'home':x})

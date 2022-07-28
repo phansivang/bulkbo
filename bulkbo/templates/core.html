@@ -8,22 +8,21 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>Material Design for Bootstrap</title>
   <!-- MDB icon -->
-  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+   <link rel="icon" type="image/x-icon" href="https://i.ibb.co/VDzGn5V/295938547-123561940395738-2673544208791713515-n-removebg-preview.png">
     <!-- Navbar -->
-                    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-2">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-blue shadow-5">
                         <!-- Container wrapper -->
                         <div class="container-fluid">
                             <div class="d-flex">
-                                <!-- Toggle button --> <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fas fa-bars"></i> </button> <!-- Navbar brand --> <a class="navbar-brand ms-3"> <i class="fas fa-bomb text-primary" aria-controls="#picker-editor"></i> </a>
+                                <img class=" me-lg-5" src="https://i.ibb.co/VDzGn5V/295938547-123561940395738-2673544208791713515-n-removebg-preview.png" width="50px">
                             </div>
                             <!-- Collapsible wrapper -->
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <!-- Left links -->
                                 <ul class="navbar-nav me-auto mb-2 ms-2 ps-1 ms-lg-0 ps-lg-0 mb-lg-0">
-                                    <li class="nav-item"> <a class="nav-link" href="{% url 'home' %}" aria-controls="#picker-editor">Home</a> </li>
-                                    <li class="nav-item"> <a class="nav-link" href="" aria-controls="#picker-editor">Dashboard</a> </li>
-                                    <li class="nav-item"> <a class="nav-link" href="{% url 'config' %}" aria-controls="#picker-editor">Settings</a> </li>
-                                    <li class="nav-item"> <a class="nav-link" href="" aria-controls="#picker-editor">Reports</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" href="{% url 'home' %}" aria-controls="#picker-editor"><img src="https://cdn-icons-png.flaticon.com/512/3208/3208668.png" width="35px"></a> </li>
+                                    <li class="nav-item"> <a class="nav-link" href="" aria-controls="#picker-editor"><img src="https://cdn-icons-png.flaticon.com/512/3132/3132084.png  " width="35px"></a> </li>
+                                    <li class="nav-item"> <a class="nav-link" href="" aria-controls="#picker-editor"><img src="https://cdn-icons.flaticon.com/png/512/2602/premium/2602555.png?token=exp=1658988489~hmac=91c5a3871e8717a36a648e03d089a947" width="35px"></a> </li>
                                     {% if request.path == '/' %}
                                         <li class="nav-item"> <a class="nav-link" href="" aria-controls="#picker-editor" style="color: #1abe5c">{{ balance }}$</a> </li>
                                     {% else %}
@@ -33,11 +32,11 @@
                             </div>
                             <!-- Collapsible wrapper --> <!-- Right elements -->
                            <div class="d-flex align-items-center"> {% if request.path == '/register/' %}
-                               <a type="button" href="{% url 'login' %}" class="btn  btn-outline-primary px-3 mb-1 me-2" aria-controls="#picker-editor">Login</a>
+                               <a type="button" href="{% url 'login' %}" class="mb-1 me-lg-3" aria-controls="#picker-editor"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828466.png" width="35px"></a> </div>
                                {% elif request.path == '/login/' %}
-                               <a type="button" href="{% url 'register' %}" class="btn  btn-outline-primary mb-1 me-lg-3" aria-controls="#picker-editor">Sign up</a> </div>
+                               <a type="button" href="{% url 'register' %}" class="mb-1 me-lg-3" aria-controls="#picker-editor"><img src="https://cdn-icons.flaticon.com/png/512/880/premium/880440.png?token=exp=1658989649~hmac=5538bd32367eaaf91d699009691c1d9a" width="35px"></a> </div>
                                {% else %}
-                               <a type="button" href="{% url 'logout' %}" class="btn  btn-outline-primary px-3 mb-1 me-2" aria-controls="#picker-editor">Logout</a>
+                               <a type="button" href="{% url 'logout' %}" class="px-3 mb-1 me-2" aria-controls="#picker-editor"><img src="https://cdn-icons-png.flaticon.com/512/1828/1828490.png" width="35px"></a>
                             {% endif %}<!-- Right elements -->
                         </div>
                         <!-- Container wrapper -->
