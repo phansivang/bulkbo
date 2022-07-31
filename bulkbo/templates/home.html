@@ -1,8 +1,25 @@
 {% extends 'core.html' %}
 {% block content %}
-    {{ request.user }}
-    {% for x in home %}
-        {{ x.sender_name }}
-        <div>{{ x.number_list }}</div>
-    {% endfor %}
+{{ request.user }}
+{% for x in home %}
+    {{ x.sender_name }}
+    <div>{{ x.number_list }}</div>
+{% endfor %}
+<div class="dropdown">
+    <a
+            class="btn btn-primary dropdown-toggle"
+            href="#"
+            role="button"
+            id="dropdownMenuLink"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+    >
+        SELECT SENDER
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        {% for i in menu %}
+        <li><a class="dropdown-item" href="#">{{ i.sendername }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

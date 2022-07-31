@@ -1,25 +1,25 @@
 {% extends 'core.html' %}
 {% block content %}
     <div class="container px-1 mb-12 me-10" style="width: 50%;padding-top: 10%">
-    <h4>SENDER PROFILE</h4>
+        <h4>SENDER PROFILE</h4>
         <br>
-     <form style="alignment: right">
-  <!-- Name input -->
-  <div class="form-outline mb-4">
-    <input type="text" id="form4Example1" class="form-control" />
-    <label class="form-label" for="form4Example1">Set Sender (Optional)</label>
-  </div>
+        <form style="alignment: right" method="POST">
+            {% csrf_token %}
+            <div class="form-outline mb-4">
+                <input name="senderid" class="form-control" id="form4Example3" rows="4"></input>
+                <label class="form-label" for="form4Example3">SENDER ID </label>
+            </div>
+            <button style="width: 15%;height: 20px;padding: 0px" type="submit" class="btn-right btn btn-light btn-block mb-4">SAVE</button>
 
-  <!-- Message input -->
-  <div class="form-outline mb-4">
-    <textarea class="form-control" id="form4Example3" rows="4"></textarea>
-    <label class="form-label" for="form4Example3">Save Number (Optional)</label>
-  </div>
-
-
-  <!-- Submit button -->
-  <center><button style="width: 50%" type="submit" class="btn btn-light btn-block mb-4">SAVE</button></center>
-</form>
+        </form>
+    <form style="alignment: right" method="POST">
+        {% csrf_token %}
+            <div class="form-outline mb-4">
+                <textarea name="numberlist" class="form-control" id="form4Example3" rows="4"></textarea>
+                <label class="form-label" for="form4Example3">NUMBER LIST</label>
+            </div>
+        <button style="width: 15%;height: 20px;padding: 0px" type="submit" class="btn-right btn btn-light btn-block mb-4">SAVE</button>
+        </form>
     </div>
     <br>
     <br>

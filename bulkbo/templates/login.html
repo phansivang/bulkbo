@@ -1,263 +1,81 @@
 {% extends 'core.html' %}
 {% block content %}
-<div id="preview" class="preview">
-    <div style="display: none;"></div>
-    <div>
-        <div data-draggable="true" class="" style="position: relative;">
-            <!----><!---->
-            <section draggable="false" class="overflow-hidden pt-0" data-v-271253ee="">
-                <section class="" style="padding-bottom: 1px;">
+    <div id="preview" class="preview">
+        <div style="display: none;"></div>
+        <div>
+            <div data-draggable="true" class="" style="position: relative;">
+                <!----><!---->
+                <section draggable="false" class="overflow-hidden pt-0" data-v-271253ee="">
+                    <section class="" style="padding-bottom: 1px;">
 
+                    </section>
                 </section>
-            </section>
-            <!---->
-        </div>
-        <div data-draggable="true" class="" style="position: relative;" draggable="false">
-            <!----><!---->
-            <section draggable="false" class="overflow-hidden pt-0" data-v-271253ee="">
-                <section class="mb-10 background-radial-gradient overflow-hidden">
-                    <style> .background-radial-gradient { background-color: hsl(218, 80%, 40%); ); } </style>
-                    <div class="container px-4 py-5 px-md-5 text-center text-lg-start">
-                        <div class="row gx-lg-5 align-items-center mb-5">
-                            <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-                                <h1 class="my-5 display-3 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)"> <span style="font-size: 5rem">BULKBO&nbsp;<br></span>  </h1>
-                                <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">BulkBo is a message sending service that provides the quickest and easiest way to send infinite SMS at the same time to any country in the world at a low cost.</p>
-                            </div>
-                            <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
-                                <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
-                                <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
-                                <div class="card bg-glass">
-                                    <div class="card-body px-4 py-5 px-md-5">
-                                        <form method="post">
-                                            {% csrf_token %}
-                                            <!-- 2 column grid layout with text inputs for the first and last names -->
-                                            <div class="row">
-                                                <div class="form-outline mb-4">
-                                                    <div class="form-outline">
-                                                        <input type="text" id="form3Example1" name="username" class="form-control active"> <label class="form-label" for="form3Example1" style="margin-left: 0px;">Username or Email</label>
-                                                        <div class="form-notch">
-                                                            <div class="form-notch-leading" style="width: 9px;"></div>
-                                                            <div class="form-notch-middle" style="width: 68.8px;"></div>
-                                                            <div class="form-notch-trailing"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                <!---->
+            </div>
+            <div data-draggable="true" class="" style="position: relative;" draggable="false">
+                <!----><!---->
+                <section draggable="false" class="overflow-hidden pt-0" data-v-271253ee="" style="background-image: url('https://i0.wp.com/justcall.io/blog/wp-content/uploads/2021/05/bulk-sms-banner-image.png?fit=2412%2C988&ssl=1');
+            height: 100vh">
+                    <br>
+                    {% if request.path == '/login/' %}
+                        <div class="container" style="width: 40%;padding-top: 5rem;">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <!-- Email input -->
+                                <div class="form-outline mb-4">
+                                    <input type="text" name="username" id="form2Example1" class="form-control" />
+                                    <label class="form-label" for="form2Example1"><i class="fas fa-user-secret"></i> Username & Email</label>
+                                </div>
 
-                                            </div>
-                                            <!-- Password input -->
-                                            <div class="form-outline mb-4">
-                                                <input type="password" name="password" id="form3Example4" class="form-control active" autocompleted=""> <label class="form-label" for="form3Example4" style="margin-left: 0px;">Password</label>
-                                                <div class="form-notch">
-                                                    <div class="form-notch-leading" style="width: 9px;"></div>
-                                                    <div class="form-notch-middle" style="width: 64.8px;"></div>
-                                                    <div class="form-notch-trailing"></div>
-                                                </div>
-                                            </div>
-                                            <!-- Checkbox -->
+                                <!-- Password input -->
+                                <div class="form-outline mb-4">
+                                    <input type="password" name="password" id="form2Example2" class="form-control" />
+                                    <label class="form-label" for="form2Example2"><i class="fas fa-key"></i> Password</label>
+                                </div>
 
-                                            <!-- Submit button --> <center><button type="submit" style="width: 50%" class="btn btn-outline-primary btn-block mb-sm-6" aria-controls="#picker-editor">Login</button></center> <!-- Register buttons -->
-                                            <div class="text-center">
-                                                <p>or sign up with:</p>
-                                                <button type="button" class="btn btn-link btn-floating mx-1"> <i class="fab fa-facebook-f" aria-controls="#picker-editor"></i> </button> <button type="button" class="btn btn-link btn-floating mx-1"> <i class="fab fa-google" aria-controls="#picker-editor"></i> </button> <button type="button" class="btn btn-link btn-floating mx-1"> <i class="fab fa-twitter" aria-controls="#picker-editor"></i> </button> <button type="button" class="btn btn-link btn-floating mx-1"> <i class="fab fa-github" aria-controls="#picker-editor"></i> </button>
-                                            </div>
-                                        </form>
+                                <!-- 2 column grid layout for inline styling -->
+                                <div class="row mb-4">
+                                    <div class="col d-flex justify-content-center">
+                                        <!-- Checkbox -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="form2Example34" checked />
+                                            <label class="form-check-label" for="form2Example34"> Remember me </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <!-- Simple link -->
+                                        <a href="#!">Forgot password?</a>
                                     </div>
                                 </div>
-                            </div>
+
+                                <!-- Submit button -->
+                                <center><button type="submit" class="btn btn-light btn-block mb-4" style="width: 50%">Sign in</button></center>
+
+                                <!-- Register buttons -->
+                                <div class="text-center">
+                                    <p>or sign up with:</p>
+                                    <button type="button" class="btn btn-light btn-floating mx-1">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-light btn-floating mx-1">
+                                        <i class="fab fa-google"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-light btn-floating mx-1">
+                                        <i class="fab fa-twitter"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-light btn-floating mx-1">
+                                        <i class="fab fa-github"></i>
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                    </div>
+                    {% endif %}
                 </section>
-            </section>
-            <!---->
-        </div>
-        <div data-draggable="true" class="" style="position: relative;" draggable="false">
-            <!----><!---->
-            <section draggable="false" class="container pt-5" data-v-271253ee="">
-                <section class="mb-10">
-                    <h2 class="fw-bold text-center mb-5">PRICING</h2>
-                    <div class="row gx-lg-5">
-                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-                            <div class="card h-100">
-                                <div class="card-header text-center pt-4">
-                                    <p class="text-uppercase"> <strong>TRAIL</strong> </p>
-                                    <h3 class="mb-4"> <strong>Free</strong> <small class="text-muted" style="font-size: 16px">/5 SMS</small> </h3>
-                                    <button type="button" class="btn btn-link w-100 mb-3" style="background-color: hsl(0, 0%, 95%)" data-ripple-color="primary">Buy</button>
-                                </div>
-                                <div class="card-body">
-                                    <ol class="list-unstyled mb-0">
-                                        <li class="mb-3"> <i class="fas fa-check text-success me-3"></i><span>Free testing 5 SMS</span> </li>
-                                        <li class="mb-3"> <i class="fas fa-check text-success me-3"></i><span>Sender Custom</span> </li>
-                                        <li class="mb-3"> <i class="fas fa-check text-success me-3"></i><span>npm installation</span> </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mb-4 mb-lg-0">
-                            <div class="card h-100">
-                                <div class="card-header text-center pt-4">
-                                    <p class="text-uppercase"> <strong>ADVANCED</strong> </p>
-                                    <h3 class="mb-4"> <strong>$ 25</strong> <small class="text-muted" style="font-size: 16px">/month</small> </h3>
-                                    <button type="button" class="btn btn-link w-100 mb-3" style="background-color: hsl(0, 0%, 95%)">Buy</button>
-                                </div>
-                                <div class="card-body">
-                                    <ol class="list-unstyled mb-0">
-                                        <li class="mb-3"> <i class="fas fa-check text-success me-3"></i><span>Unlimited SMS</span> </li>
-                                        <li class="mb-3"> <i class="fas fa-check text-success me-3"></i><span>Sender Custom</span> </li>
-                                        <li class="mb-3"> <i class="fas fa-check text-success me-3"></i><span>Support all country</span> </li>
-                                        <li class="mb-3"> <i class="fas fa-check text-success me-3"></i><span>Support all langauges format</span> </li>
-                                        <li class="mb-3"> <i class="fas fa-check text-success me-3"></i><span>0.075 $ per SMS</span> </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mb-4 mb-lg-0">
-                            <div class="card h-100">
-                                <div class="card-header text-center pt-4">
-                                    <p class="text-uppercase"> <strong>LIFETIME</strong> </p>
-                                    <h3 class="mb-4"> <strong>$ 80</strong> <small class="text-muted" style="font-size: 16px"></small> </h3>
-                                    <button type="button" class="btn btn-link w-100 mb-3" style="background-color: hsl(0, 0%, 95%)" data-ripple-color="primary">Buy</button>
-                                </div>
-                                <div class="card-body">
-                                    <ol class="list-unstyled mb-0">
-                                        <li class="mb-3"> <i class="fas fa-check text-success me-3"></i><span>Unlimited SMS</span> </li>
-                                        <li class="mb-3"> <i class="fas fa-check text-success me-3"></i><span>Sender Custom</span> </li>
-                                        <li class="mb-3"> <i class="fas fa-check text-success me-3"></i><span>Support all country</span> </li>
-                                        <li class="mb-3"> <i class="fas fa-check text-success me-3"></i><span>Support all langauges format</span> </li>
-                                        <li class="mb-3"> <i class="fas fa-check text-success me-3"></i><span>0.075 $ per SMS</span> </li>
-                                        <li class="mb-3"> <i class="fas fa-check text-success me-3"></i><span>Premium support</span> </li>
-                                        <li class="mb-3"> <i class="fas fa-check text-success me-3"></i><span></span> </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-            <!---->
-        </div>
-        <div data-draggable="true" class="" style="position: relative;">
-            <!----><!---->
-            <section draggable="false" class="container pt-5" data-v-271253ee="">
-                <section class="mb-10">
-                    <div class="d-flex justify-content-center">
-                        <div class="text-center" style="max-width: 700px">
-                            <p class="text-uppercase text-primary fw-bold mb-4">Features</p>
-                            <h2 style="font-family: Bahnschrift" class="fw-bold mb-4">WHY BULKBO IS THE BEST?</h2>
-                            <p class="text-muted mb-5">Bulkbo came up with the top-notch service SMS that allows you to send multiple SMS from one click to any country you want with the best functions and features that other services didn't have.</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 mb-5">
-                            <div class="d-flex align-items-start">
-                                <div class="flex-shrink-0"> <i class="fas fa-check-circle fa-lg text-success fa-fw"></i> </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <p class="fw-bold mb-1">SUPPORT 24/7</p>
-                                    <p class="text-muted mb-0">Our customer support every day and every time is willing to support your problem.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-5">
-                            <div class="d-flex align-items-start">
-                                <div class="flex-shrink-0"> <i class="fas fa-check-circle fa-lg text-success fa-fw"></i> </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <p class="fw-bold mb-1">SENDER CUSTOM</p>
-                                    <p class="text-muted mb-0">Our service allows the client to set a custom sender ID with a specific name that client on demand</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-5">
-                            <div class="d-flex align-items-start">
-                                <div class="flex-shrink-0"> <i class="fas fa-check-circle fa-lg text-success fa-fw"></i> </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <p class="fw-bold mb-1">GLOBAL SMS</p>
-                                    <p class="text-muted mb-0">Our service support any country for sending SMS</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-5">
-                            <div class="d-flex align-items-start">
-                                <div class="flex-shrink-0"> <i class="fas fa-check-circle fa-lg text-success fa-fw"></i> </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <p class="fw-bold mb-1">CHEAP PRICE</p>
-                                    <p class="text-muted mb-0">For per SMS cost only 0.075$ Up&nbsp;</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-5">
-                            <div class="d-flex align-items-start">
-                                <div class="flex-shrink-0"> <i class="fas fa-check-circle fa-lg text-success fa-fw"></i> </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <p class="fw-bold mb-1">SUPPORT LANGUAGES</p>
-                                    <p class="text-muted mb-0">You can send all type of&nbsp;languages not only English</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-5">
-                            <div class="d-flex align-items-start">
-                                <div class="flex-shrink-0"> <i class="fas fa-check-circle fa-lg text-success fa-fw"></i> </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <p class="fw-bold mb-1">EASY TO USE</p>
-                                    <p class="text-muted mb-0">We have the best Interface for easy to use and very simplicity&nbsp;</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-5">
-                            <div class="d-flex align-items-start">
-                                <div class="flex-shrink-0"> <i class="fas fa-check-circle fa-lg text-success fa-fw"></i> </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <p class="fw-bold mb-1">NO STICT RULE</p>
-                                    <p class="text-muted mb-0">Client can send what ever SMS they want no policy and strict rule&nbsp;</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 mb-5">
-                            <div class="d-flex align-items-start">
-                                <div class="flex-shrink-0"> <i class="fas fa-check-circle fa-lg text-success fa-fw"></i> </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <p class="fw-bold mb-1">UPDATE ON TIME</p>
-                                    <p class="text-muted mb-0">Our service keep tracking and update whenever anything get bug or error</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </section>
-            <!---->
-        </div>
-        <div data-draggable="true" class="" style="position: relative;">
-            <!----><!---->
-            <section draggable="false" class="container pt-5" data-v-271253ee="">
-                <section class="mb-10 text-center">
-                    <h2 class="fw-bold mb-5"><span>TEAM</span> <u class="text-primary"></u></h2>
-                    <div class="row">
-                        <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                            <img class="rounded-5 shadow-1-strong mb-4" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" alt="avatar" style="width: 150px" aria-controls="#picker-editor">
-                            <h5 class="mb-3">Phan sivang</h5>
-                            <p>BackEnd Developer</p>
-                            <ul class="list-unstyled mb-0"> <a href="#!" class="px-1"> <i class="fab fa-github" aria-controls="#picker-editor"></i> </a> <a href="#!" class="px-1"> <i class="fab fa-facebook-f " aria-controls="#picker-editor"></i> </a> <a href="#!" class="px-1"> <i class="fab fa-linkedin-in" aria-controls="#picker-editor"></i> </a> </ul>
-                        </div>
-                        <div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-                            <img class="rounded-5 shadow-1-strong mb-4" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(4).jpg" alt="avatar" style="width: 150px" aria-controls="#picker-editor">
-                            <h5 class="mb-3">Veronica Smith</h5>
-                            <p>Backend Developer</p>
-                            <ul class="list-unstyled mb-0"> <a href="#!" class="px-1"> <i class="fab fa-github" aria-controls="#picker-editor"></i> </a> <a href="#!" class="px-1"> <i class="fab fa-facebook-f " aria-controls="#picker-editor"></i> </a> <a href="#!" class="px-1"> <i class="fab fa-linkedin-in" aria-controls="#picker-editor"></i> </a> </ul>
-                        </div>
-                        <div class="col-md-6 col-lg-3 mb-5 mb-md-0">
-                            <img class="rounded-5 shadow-1-strong mb-4" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg" alt="avatar" style="width: 150px" aria-controls="#picker-editor">
-                            <h5 class="mb-3">Tom Johnson</h5>
-                            <p>Digital Marketing Analyst</p>
-                            <ul class="list-unstyled mb-0"> <a href="#!" class="px-1"> <i class="fab fa-github-square " aria-controls="#picker-editor"></i> </a> <a href="#!" class="px-1"> <i class="fab fa-facebook-f " aria-controls="#picker-editor"></i> </a> <a href="#!" class="px-1"> <i class="fab fa-linkedin-in" aria-controls="#picker-editor"></i> </a> </ul>
-                        </div>
-                        <div class="col-md-6 col-lg-3 mb-5 mb-md-0">
-                            <img class="rounded-5 shadow-1-strong mb-4" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg" alt="avatar" style="width: 150px" aria-controls="#picker-editor">
-                            <h5 class="mb-3">Emma Lovelace</h5>
-                            <p>Web Designer</p>
-                            <ul class="list-unstyled mb-0"> <a href="#!" class="px-1"> <i class="fab fa-github " aria-controls="#picker-editor"></i> </a> <a href="#!" class="px-1"> <i class="fab fa-facebook-f " aria-controls="#picker-editor"></i> </a> <a href="#!" class="px-1"> <i class="fab fa-linkedin " aria-controls="#picker-editor"></i> </a> </ul>
-                        </div>
-                    </div>
-                </section>
-            </section>
-            <!---->
+            </div>
         </div>
     </div>
-</div>{% endblock %}
+{% endblock %}

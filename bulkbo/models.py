@@ -7,12 +7,18 @@ from django.contrib.auth import get_user_model
 class CustomUser(AbstractUser):
     email = models.EmailField(_('email address'), unique=True)
 
-class senderprofile(models.Model):
-    sender_name = models.CharField(max_length=200)
-    number_list = models.TextField(max_length=1000)
+class sender_name(models.Model):
+    sendername = models.CharField(max_length=200)
     author = models.ForeignKey(get_user_model(),on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.sender_name
+        return self.sendername
+
+class sender_number(models.Model):
+    number_list = models.TextField(max_length=1000)
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.number_list
 
 

@@ -3,10 +3,10 @@ from django.contrib import messages
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from .models import senderprofile
+from .models import sender_number,sender_name
 from .forms import register, LoginForm
-
-
+from django.contrib.auth import get_user_model
+from django.contrib.auth.admin import User
 @login_required(login_url='login')
 def homepage(request):
     get_balance = requests.get(
@@ -16,8 +16,10 @@ def homepage(request):
 
 def registerview(request):
     if request.method == 'POST':
-        form = register(request.POST)
+        form = register(data=request.POST)
+        print(form.is_valid())
         if form.is_valid():
+
             print(1)
             form.save()
             messages.success(request, 'Register successfully!')
@@ -34,12 +36,19 @@ class LoginView(auth_views.LoginView):
     template_name = 'login.html'
 
 
-def configview(request):
-    return render(request, 'config.html')
-
-def testing(request):
-    x = senderprofile.objects.all()
-    for i in x:
-        print(i.sender_name)
-        print(len(i.number_list))
-    return render(request,'home.html',{'home':x})
+def senderprofileview(request):
+    user = User.objects.filter(username=request.user.username).first()
+    sendername = sender_name.objects.filter(author=request.user.id)
+    sendernumber = sender_number.objects.filter(author=request.user.id)
+    if request.method == 'POST':
+        try:
+            check_form_sender_name = request.POST['senderid']
+            if check_form_sender_name:
+                save = sendername.create(author=user, sendername=check_form_sender_name)
+                save.save()
+        except:
+            check_form_numberlist = request.POST['senderid']
+            if check_form_numberlist:
+                save = sendernumber.create(author=user, sendername=check_form_numberlist)
+                save.save()
+    return render(request,'config.html')
