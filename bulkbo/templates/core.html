@@ -22,9 +22,9 @@
                                 <!-- Left links -->
                                <ul class="navbar-nav me-auto mb-2 ms-2 ps-1 ms-lg-0 ps-lg-0 mb-lg-0">
                                     <li class="nav-item"> <a class="btn btn-light btn-rounded px-3 mb-1 me-2" href="{% url 'home' %}" aria-controls="#picker-editor"><i class="fas fa-house-damage"></i> Home</a> </li>
-                                    <li class="nav-item"> <a class="btn btn-light btn-rounded px-3 mb-1 me-2" href="" aria-controls="#picker-editor">Dashboard</a> </li>
                                     <li class="nav-item"> <a class="btn btn-light btn-rounded px-3 mb-1 me-2" href="{% url 'senderconfig' %}" aria-controls="#picker-editor"><i class="fas fa-cogs fa-fw me-2"></i>Settings</a> </li>
-                                    <li class="nav-item"> <a class="btn btn-light btn-rounded px-3 mb-1 me-2" href="{% url 'report' %}" aria-controls="#picker-editor"><i class="fas fa-chart-bar"></i> Reports</a> </li>
+                               <li class="nav-item"> <a class="btn btn-light btn-rounded px-3 mb-1 me-2" href="" aria-controls="#picker-editor"><i class="fas fa-chart-line"></i> Statistics</a> </li>
+                                    <li class="nav-item"> <a class="btn btn-light btn-rounded px-3 mb-1 me-2" href="{% url 'report' %}" aria-controls="#picker-editor"><i class="fas fa-table"></i> Reports</a> </li>
                                     {% if request.path == '/' %}
                                         <li class="nav-item"> <a class="btn btn-light btn-rounded px-3 mb-1 me-2"><i class="fas fa-dollar-sign" style="color: #1abe5c"></i> {{ balance }}</a> </li>
                                     {% else %}

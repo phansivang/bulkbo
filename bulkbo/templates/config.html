@@ -25,5 +25,16 @@
             <button style="width: 15%;height: 25px;padding: 0px" type="submit" class="btn-right btn btn-light btn-block mb-4">SAVE</button>
 
         </form>
+    <form style="alignment: right" method="POST">
+            {% csrf_token %}
+            <div class="form-outline mb-4">
+                <textarea name="Text" class="form-control" id="form4Example3" rows="4"></textarea>
+                <label class="form-label" for="form4Example3">Text Max 200 (Optional) </label>
+
+            </div>
+            <input type="hidden" name="author" class="form-control" value="{{ request.user.id }}">
+            <button style="width: 15%;height: 25px;padding: 0px" type="submit" class="btn-right btn btn-light btn-block mb-4">SAVE</button>
+
+        </form>
 
 {% endblock %}

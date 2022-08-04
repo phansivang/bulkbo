@@ -8,7 +8,12 @@ from django.contrib.auth import get_user_model
 class CustomUser(AbstractUser):
     email = models.EmailField(_('email address'), unique=True)
 
+class text(models.Model):
+    Text = models.TextField(max_length=200)
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.Text
 
 class sender_name(models.Model):
     sendername = models.CharField(max_length=200)
@@ -36,9 +41,9 @@ class report(models.Model):
     Recipient = models.CharField(max_length=20)
     SenderID = models.CharField(max_length=20)
     Text = models.TextField(max_length=200)
-    Price = models.FloatField(max_length=20)
-    TotalPrice = models.FloatField(max_length=20)
+    Price = models.CharField(max_length=20)
+    TotalPrice = models.CharField(max_length=20)
     author = models.ForeignKey(get_user_model(),on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.Recipient
+        return self.SenderID +" "+ self.Recipient

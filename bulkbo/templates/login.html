@@ -1,4 +1,5 @@
 {% extends 'core.html' %}
+{% load socialaccount %}
 {% block content %}
     <div id="preview" class="preview">
         <div style="display: none;"></div>
@@ -59,9 +60,9 @@
                                         <i class="fab fa-facebook-f"></i>
                                     </button>
 
-                                    <button type="button" class="btn btn-light btn-floating mx-1">
+                                    <a href="{% provider_login_url 'google' %} type="button" class="btn btn-light btn-floating mx-1">
                                         <i class="fab fa-google"></i>
-                                    </button>
+                                    </a>
 
                                     <button type="button" class="btn btn-light btn-floating mx-1">
                                         <i class="fab fa-twitter"></i>

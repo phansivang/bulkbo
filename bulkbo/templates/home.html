@@ -15,6 +15,13 @@
                 <option value="{{ i.pk }}">{{ i.sendername }}</option>
             {% endfor %}
         </select>
+            <br>
+        <select class="form-select" name="text" aria-label="Default select example">
+            <option selected>Select List Text</option>
+            {% for i in listtext %}
+                <option value="{{ i.pk }}">{{ i.Text }}</option>
+            {% endfor %}
+        </select>
         </div>
         <br>
         <button style="width: 20%" class="btn btn-light btn-block mb-4" data-mdb-toggle="modal" data-mdb-target="#exampleModal" type="submit">submit</button>
