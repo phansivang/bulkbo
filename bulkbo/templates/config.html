@@ -6,21 +6,24 @@
         <form style="alignment: right" method="POST">
             {% csrf_token %}
             <div class="form-outline mb-4">
-                <input name="senderid" class="form-control" id="form4Example3" rows="4"></input>
-                <label class="form-label" for="form4Example3">SENDER ID </label>
+                <input name="sendername" class="form-control" id="form4Example3" rows="4">
+                <label class="form-label" for="form4Example3">Sender ID (Optional)</label>
+
             </div>
-            <button style="width: 15%;height: 20px;padding: 0px" type="submit" class="btn-right btn btn-light btn-block mb-4">SAVE</button>
+            <input type="hidden" name="author" class="form-control" value="{{ request.user.id }}">
+            <button style="width: 15%;height: 25px;padding: 0px" type="submit" class="btn-right btn btn-light btn-block mb-4">SAVE</button>
 
         </form>
     <form style="alignment: right" method="POST">
-        {% csrf_token %}
+            {% csrf_token %}
             <div class="form-outline mb-4">
-                <textarea name="numberlist" class="form-control" id="form4Example3" rows="4"></textarea>
-                <label class="form-label" for="form4Example3">NUMBER LIST</label>
+                <textarea name="number_list" class="form-control" id="form4Example3" rows="4"></textarea>
+                <label class="form-label" for="form4Example3">Number List (Optional) </label>
+
             </div>
-        <button style="width: 15%;height: 20px;padding: 0px" type="submit" class="btn-right btn btn-light btn-block mb-4">SAVE</button>
+            <input type="hidden" name="author" class="form-control" value="{{ request.user.id }}">
+            <button style="width: 15%;height: 25px;padding: 0px" type="submit" class="btn-right btn btn-light btn-block mb-4">SAVE</button>
+
         </form>
-    </div>
-    <br>
-    <br>
+
 {% endblock %}

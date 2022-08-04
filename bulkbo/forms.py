@@ -1,9 +1,10 @@
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.password_validation import validate_password
+from django import forms
 from django.contrib.auth import get_user_model
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import sender_number,sender_name
+from .models import list_numbers,sender_name
+
 
 class register(UserCreationForm):
     class Meta:
@@ -14,27 +15,12 @@ class register(UserCreationForm):
 class LoginForm(AuthenticationForm):
     username = forms.CharField(label='Email / Username')
 
-list_name = sender_name.objects.all()
-for i in list_name:
-    print(i.sendername)
+class sender_name_form(forms.ModelForm):
+    class Meta:
+        model = sender_name
+        fields = ['sendername','author']
 
-    Select_country = (
-        (i.sendername,i.sendername),
-    )
-
-Select_Service =(
-    ("fb", 'Facebook'),
-    ("go", 'Youtube/Gmail'),
-    ("lf", 'TikTok'),
-    ("ld", 'Lazada'),
-    ("wb", 'WeChat'),
-    ("ig", 'Instagram'),
-    ('nz','FoodPanda'),
-    ('ht','HotMail')
-)
-
-
-class Menu(forms.Form):
-    select_country = forms.ChoiceField(label='SELECT COUNTRY',choices =Select_country,required=False)
-    select_service = forms.ChoiceField(label='SELECT SERVICE',choices =Select_Service,required=False)
-
+class nunber_list_form(forms.ModelForm):
+    class Meta:
+        model = list_numbers
+        fields = '__all__'

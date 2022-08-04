@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bulkbo'
+    'bulkbo',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,4 @@ AUTH_USER_MODEL = 'bulkbo.CustomUser'
 AUTHENTICATION_BACKENDS = ['bulkbo.backends.EmailBackend']
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL ='login'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
