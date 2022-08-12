@@ -9,6 +9,7 @@ psycopg2==2.9.3
 setuptools==60.2.0
 sqlparse==0.4.2
 tzdata==2022.1
+django-allauth
 wheel==0.37.1
 whitenoise==6.1.0
 requests
