@@ -40,28 +40,26 @@ def homepage(request):
 
         send_now = requests.get(
             f'http://gateway.sms77.io/api/sms?p={user_api}&to={str(list_number.first())}&text={str(list_Text.first())}&from={str(list_sender_name.first())}&debug=1&json=1')
-        result = [send_now.json()['total_price'], send_now.json()['messages'][0]['sender']]
         for all in send_now.json()['messages']:
             print(all)
             reports = report.objects.create(author=user, Recipient=all['recipient'], SenderID=all['sender'],
                                             Text=all['text'], Price=all['price'], TotalPrice=send_now.json()['total_price'])
             reports.save()
-        print(result)
+
     return render(request, 'home.html',
                   {'balance': get_balance.text, 'numberlist': list_number, 'list_sender_name': list_sender,'listtext':list_text})
 
 
 def registerview(request):
+    global messages
     if request.method == 'POST':
         form = register(data=request.POST)
-        print(form.is_valid())
         if form.is_valid():
             form.save()
-            messages.success(request, 'Register successfully!')
             return redirect('/login')
     else:
         form = register()
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'register.html', {'form': form,'message':messages})
 
 
 class LoginView(auth_views.LoginView):
@@ -72,7 +70,6 @@ class LoginView(auth_views.LoginView):
 @login_required(login_url='login')
 def senderprofileview(request):
     if request.method == 'POST':
-
         sender_name = sender_name_form(request.POST)
         sender_number = nunber_list_form(request.POST)
         text = text_list_form(request.POST)
@@ -84,7 +81,11 @@ def senderprofileview(request):
             text.save()
     else:
         sender_name = sender_name_form()
-    return render(request, 'config.html', {'form': sender_name})
+    user_api = UserAPI.objects.filter(author=request.user.id).first()
+    # request display balance
+    get_balance = requests.get(
+        f'https://gateway.sms77.io/api/balance?p={user_api}')
+    return render(request, 'config.html', {'form': sender_name,'balance':get_balance.text})
 
 @login_required(login_url='login')
 def reportviews(request):
@@ -94,5 +95,13 @@ def reportviews(request):
     for i in list_reports:
         totalprice = i.TotalPrice
         print(totalprice)
+    user_api = UserAPI.objects.filter(author=request.user.id).first()
+    get_balance = requests.get(
+        f'https://gateway.sms77.io/api/balance?p={user_api}')
+    return render(request, 'reports.html',{'result':list_reports,'totalprice':totalprice,'balance':get_balance.text})
 
-    return render(request, 'reports.html',{'result':list_reports,'totalprice':totalprice})
+
+def getstartview(request):
+    return render(request,'main.html')
+
+

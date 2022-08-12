@@ -1,36 +1,90 @@
 {% extends 'core.html' %}
-{% block content %}
-    <form method="POST">
-        <center>
-            <div style="width: 30%;padding-top: 10rem">
-            <select class="form-select" name="getnumber" aria-label="Default select example">
-            <option selected>Select Sender ID</option>
-            {% for i in numberlist %}
-                <option value="{{ i.pk }}">{{ i.number_list }}</option>
-            {% endfor %}
-        </select><br>
-        <select class="form-select" name="getsendername" aria-label="Default select example">
-            <option selected>Select List Number</option>
-            {% for i in list_sender_name %}
-                <option value="{{ i.pk }}">{{ i.sendername }}</option>
-            {% endfor %}
-        </select>
+{% block content %}<br>
+
+<div class="container" style="background: linear-gradient(to left, #0f2027, #203a43, #2c5364);color: whitesmoke">
+    <!-- Start your project here-->
+<div id="preview" class="preview">
+   <div style="display: none;"></div>
+   <div>
+      <div data-draggable="true" class="" style="position: relative;" draggable="false">
+         <!----><!---->
+         <section draggable="false" class="container pt-5" data-v-271253ee="" style="border: black">
+            <section class="mb-10">
+               <h2 class="fw-bold mb-5 text-center">HOW IT WORK</h2>
+               <div class="row gx-lg-5">
+                  <div class="col-lg-5 mb-4 mb-lg-0">
+                     <form  method="POST" style="font-size: 15px;width: 500px;padding-left: 20%;padding-bottom: 20%" >
+            <div style="color: whitesmoke;padding-bottom: 20px" >
+                <label>SELECT SENDER ID </label><br>
+                <select style="width: 200px" class="form-select-lg" name="getsendername" aria-label="Default select example">
+                    {% for i in list_sender_name %}
+                    <option value="{{ i.pk }}" selected>{{ i.sendername }}</option>
+                    {% endfor %}
+                </select><br><br>
+                <label>SELECT NUMBER LIST</label><br>
+                <select style="width: 200px" class="form-select-lg"name="getnumber" aria-label="Default select example">
+                    {% for i in numberlist %}
+                    <option value="{{ i.pk }}" selected>{{ i.number_list }}</option>
+                    {% endfor %}
+                </select><br>
+                <br>
+                <label>SELECT TEXT LIST</label><br>
+                <select style="width: 200px" class="form-select-lg"  name="text" aria-label="Default select example">
+                    {% for i in listtext %}
+                    <option value="{{ i.pk }}" selected>{{ i.Text }}</option>
+                    {% endfor %}
+                </select><br>
+            </div>
             <br>
-        <select class="form-select" name="text" aria-label="Default select example">
-            <option selected>Select List Text</option>
-            {% for i in listtext %}
-                <option value="{{ i.pk }}">{{ i.Text }}</option>
-            {% endfor %}
-        </select>
-        </div>
-        <br>
-        <button style="width: 20%" class="btn btn-light btn-block mb-4" data-mdb-toggle="modal" data-mdb-target="#exampleModal" type="submit">submit</button>
-        <div class="card" style="width: 50%;">
-  <div class="card-body">
-    This is some text within a card body.
-  </div>
-</div>
-        </center>
+        <button style="width: 20%;color: whitesmoke" class="btn  btn-block-dark px-3 mb-1 me-2" data-mdb-toggle="modal" data-mdb-target="#exampleModal" type="submit">START</button>
     </form>
+                  </div>
+                  <div class="col-lg-7 mb-4 mb-md-0">
+                     <div class="row gx-lg-5" style="color: whitesmoke">
+                        <div class="col-md-6 mb-5">
+                           <div class="d-flex align-items-start">
+                              <div class="flex-shrink-0">
+                                 <div class="p-3 bg-dark rounded-4 shadow-2-strong"> <i class="fas fa-id-badge"></i> </div>
+                              </div>
+                              <div class="flex-grow-1 ms-4">
+                                 <p class="fw-bold mb-1">Sender ID</p>
+                                 <p class=" mb-0">Is your Idenity of your SMS to display at the of top of your SMS represent</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6 mb-5">
+                           <div class="d-flex align-items-start">
+                              <div class="flex-shrink-0">
+                                 <div class="p-3 bg-dark rounded-4 shadow-2-strong"> <i class="fas fa-list-ol"></i> </div>
+                              </div>
+                              <div class="flex-grow-1 ms-4">
+                                 <p class="fw-bold mb-1">Phone Number List</p>
+                                 <p class=" mb-0">The list of your phone numbers that you set as the list and also the target that we are going to send the SMS to</p>
+                              </div>
+                           </div>
+                        </div>
+                        </div>
+                        <div class="col-md-6 mb-5">
+                           <div class="d-flex align-items-start">
+                              <div class="flex-shrink-0">
+                                 <div class="p-3 bg-dark rounded-4 shadow-2-strong"> <i class="fas fa-sms"></i> </div>
+                              </div>
+                              <div class="flex-grow-1 ms-4">
+                                 <p class="fw-bold mb-1">Text List</p>
+                                 <p class=" mb-0">The text list is the list of your text that you have saved and selected to be sent.</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+         </section>
+         <!---->
+      </div>
+   </div>
+</div>
+<!-- End your project here-->
+</div>
 
 {% endblock %}

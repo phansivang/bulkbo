@@ -1,82 +1,77 @@
 {% extends 'core.html' %}
 {% load socialaccount %}
 {% block content %}
-    <div id="preview" class="preview">
-        <div style="display: none;"></div>
-        <div>
-            <div data-draggable="true" class="" style="position: relative;">
-                <!----><!---->
-                <section draggable="false" class="overflow-hidden pt-0" data-v-271253ee="">
-                    <section class="" style="padding-bottom: 1px;">
+{% if not user.is_authenticated %}
+<div id="preview" class="preview">
+    <div style="display: none;"></div>
+    <div>
+        <div data-draggable="true" class="" style="position: relative;">
+            <!----><!---->
+            <section draggable="false" class="overflow-hidden pt-0" data-v-271253ee="">
+                <section class="" style="padding-bottom: 1px;">
 
-                    </section>
                 </section>
-                <!---->
-            </div>
-            <div data-draggable="true" class="" style="position: relative;" draggable="false">
-                <!----><!---->
-                <section draggable="false" class="overflow-hidden pt-0" data-v-271253ee="" style="background-image: url('https://enezaeducation.com/wp-content/uploads/2019/06/Hompage-Header-BG.png');
-            height: 100vh">
-                    <br>
-                    {% if request.path == '/login/' %}
-                        <div class="container" style="width: 40%;padding-top: 5rem;">
-                            <form method="POST">
-                                {% csrf_token %}
-                                <!-- Email input -->
-                                <div class="form-outline mb-4">
-                                    <input type="text" name="username" id="form2Example1" class="form-control" />
-                                    <label class="form-label" for="form2Example1"><i class="fas fa-user-secret"></i> Username & Email</label>
-                                </div>
-
-                                <!-- Password input -->
-                                <div class="form-outline mb-4">
-                                    <input type="password" name="password" id="form2Example2" class="form-control" />
-                                    <label class="form-label" for="form2Example2"><i class="fas fa-key"></i> Password</label>
-                                </div>
-
-                                <!-- 2 column grid layout for inline styling -->
-                                <div class="row mb-4">
-                                    <div class="col d-flex justify-content-center">
-                                        <!-- Checkbox -->
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="form2Example34" checked />
-                                            <label class="form-check-label" for="form2Example34"> Remember me </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="col">
-                                        <!-- Simple link -->
-                                        <a href="#!">Forgot password?</a>
-                                    </div>
-                                </div>
-
-                                <!-- Submit button -->
-                                <center><button type="submit" class="btn btn-light btn-block mb-4" style="width: 50%">Sign in</button></center>
-
-                                <!-- Register buttons -->
-                                <div class="text-center">
-                                    <p>or sign up with:</p>
-                                    <button type="button" class="btn btn-light btn-floating mx-1">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </button>
-
-                                    <a href="{% provider_login_url 'google' %} type="button" class="btn btn-light btn-floating mx-1">
-                                        <i class="fab fa-google"></i>
-                                    </a>
-
-                                    <button type="button" class="btn btn-light btn-floating mx-1">
-                                        <i class="fab fa-twitter"></i>
-                                    </button>
-
-                                    <button type="button" class="btn btn-light btn-floating mx-1">
-                                        <i class="fab fa-github"></i>
-                                    </button>
-                                </div>
-                            </form>
+            </section>
+            <!---->
+        </div>
+        <div data-draggable="true" class="" style="position: relative;" draggable="false">
+            <!----><!---->
+            <section draggable="false" class="overflow-hidden pt-0" data-v-271253ee="">
+                <br>
+                {% if request.path == '/login/' %}
+                <div class="container" style="width: 40%;padding-top: 5rem;">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input style="color: white"  type="text" name="username" id="form2Example1" class="form-control" />
+                            <label style="color: white" class="form-label" for="form2Example1"><i class="fas fa-user-secret"></i> Username & Email</label>
                         </div>
-                    {% endif %}
-                </section>
-            </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <input style="color: white" type="password" name="password" id="form2Example2" class="form-control" />
+                            <label style="color: white" class="form-label" for="form2Example2"><i class="fas fa-key"></i> Password</label>
+                        </div>
+                        {% if form.non_field_errors%}
+                        <div class="non-field-errors">
+                            {% for err in form.non_field_errors%}
+                            <center style="font-size: 13px"><p  style="text-align: center;color: red;width: 100%;border-radius: 25px;;display: inline-block;
+;
+"><i class="fas fa-times-circle me-3"></i>{{err}}</p></center>
+                            {%endfor%}
+                        </div>
+                        {% endif %}
+
+                        <!-- 2 column grid layout for inline styling -->
+                        <div class="row mb-4">
+                            <div class="col d-flex justify-content-center">
+                            </div>
+
+                            <div class="col">
+                                <!-- Simple link -->
+                                <a style="color: whitesmoke" href="#!">Forgot password?</a>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <center><button type="submit" class="btn btn-light btn-block mb-4" style="width: 50%">Sign in</button></center>
+
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                            <p style="color: whitesmoke">Login with Google</p>
+                            <a href="{% provider_login_url 'google' %}" class="btn btn-light btn-floating mx-1">
+                                <i class="fab fa-google"></i>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+                {% endif %}
+            </section>
         </div>
     </div>
+</div>
+{% else %}
+<meta http-equiv="REFRESH" content="0;url=/dashboard/">
+{% endif %}
 {% endblock %}

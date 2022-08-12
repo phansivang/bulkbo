@@ -1,79 +1,83 @@
 {% extends 'core.html' %}
+{% load socialaccount %}
 {% block content %}
-    <div id="preview" class="preview">
-        <div style="display: none;"></div>
-        <div>
-            <div data-draggable="true" class="" style="position: relative;">
-                <!----><!---->
-                <section draggable="false" class="overflow-hidden pt-0" data-v-271253ee="">
-                    <section class="" style="padding-bottom: 1px;">
+{% if not user.is_authenticated %}
+<div id="preview" class="preview">
+    <div style="display: none;"></div>
+    <div>
+        <div data-draggable="true" class="" style="position: relative;">
+            <!----><!---->
+            <section draggable="false" class="overflow-hidden pt-0" data-v-271253ee="">
+                <section class="" style="padding-bottom: 1px;">
 
-                    </section>
                 </section>
-                <!---->
-            </div>
-            <div data-draggable="true" class="" style="position: relative;" draggable="false">
-                <!----><!---->
-                <section draggable="false" class="overflow-hidden pt-0" data-v-271253ee="" style="background-image: url('https://enezaeducation.com/wp-content/uploads/2019/06/Hompage-Header-BG.png');
-            height: 100vh">
-                    <br>
-                    {% if request.path == '/register/' %}
-                        <div class="container" style="width: 40%;padding-top: 5rem;">
-                            <form method="POST">
-                                {% csrf_token %}
-                                <!-- Email input -->
-                                <div class="form-outline mb-4">
-                                    <input type="text" name="username" id="form2Example1" class="form-control" />
-                                    <label class="form-label" for="form2Example1"><i class="fas fa-user-alt"></i> Username</label>
-                                </div>
-                                 <div class="form-outline mb-4">
-                                    <input type="email" name="email" id="form2Example1" class="form-control" />
-                                    <label class="form-label" for="form2Example1"><i class="fas fa-envelope"></i> Email</label>
-                                </div>
-                                <!-- Password input -->
-                                <div class="form-outline mb-4">
-                                    <input type="password" name="password1" id="form2Example2" class="form-control" />
-                                    <label class="form-label" for="form2Example2"><i class="fas fa-key"></i> Password</label>
-                                </div>
-                                 <div class="form-outline mb-4">
-                                    <input type="password" name="password2" id="form2Example2" class="form-control" />
-                                    <label class="form-label" for="form2Example2"><i class="fas fa-key"></i> Confrim Password</label>
-                                </div>
-
-                                <!-- 2 column grid layout for inline styling -->
-                                <div class="row mb-4">
-                                    <div class="col d-flex justify-content-center">
-
-                                    </div>
-                                </div>
-
-                                <!-- Submit button -->
-                                <center><button type="submit" class="btn btn-light btn-block mb-4" style="width: 50%">Sign Up</button></center>
-
-                                <!-- Register buttons -->
-                                <div class="text-center">
-                                    <p>or sign up with:</p>
-                                    <button type="button" class="btn btn-light btn-floating mx-1">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </button>
-
-                                    <button type="button" class="btn btn-light btn-floating mx-1">
-                                        <i class="fab fa-google"></i>
-                                    </button>
-
-                                    <button type="button" class="btn btn-light btn-floating mx-1">
-                                        <i class="fab fa-twitter"></i>
-                                    </button>
-
-                                    <button type="button" class="btn btn-light btn-floating mx-1">
-                                        <i class="fab fa-github"></i>
-                                    </button>
-                                </div>
-                            </form>
+            </section>
+            <!---->
+        </div>
+        <div data-draggable="true" class="" style="position: relative;" draggable="false">
+            <!----><!---->
+            <section draggable="false" class="overflow-hidden pt-0" data-v-271253ee="">
+                <br>
+                {% if request.path == '/register/' %}
+                <div class="container" style="width: 40%;padding-top: 5rem;">
+                    <form method="POST" id="form">
+                        {% csrf_token %}
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input style="color: white" type="text" name="username" id="form2Example1" class="form-control" />
+                            <label style="color: white" class="form-label" for="form2Example1"><i class="fas fa-user-alt"></i> Username</label>
                         </div>
-                    {% endif %}
-                </section>
-            </div>
+                        <div class="form-outline mb-4">
+                            <input style="color: whitesmoke" type="email" name="email"  class="form-control" />
+                            <label style="color: whitesmoke" class="form-label" for="form2Example1"><i class="fas fa-envelope"></i> Email</label>
+                        </div>
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <input style="color: whitesmoke" type="password" name="password1" id="form2Example2" class="form-control" />
+                            <label style="color: whitesmoke" class="form-label" for="form2Example2"><i class="fas fa-key"></i> Password</label>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <input style="color: whitesmoke" type="password" name="password2"  class="form-control" />
+                            <label style="color: whitesmoke" class="form-label" for="form2Example2"><i class="fas fa-key"></i> Confrim Password</label>
+                        </div>
+
+                        <div>
+                           {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+
+                            <div  style="color: crimson;font-size: 10px" role="alert" data-mdb-color="danger">
+        <i class="fas fa-times-circle me-3"></i><strong>{{ error|escape }}</strong>
+      </div>
+        {% endfor %}
+    {% endfor %}
+                            <br>
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+
+{% endif %}
+                        </div>
+                        <!-- Submit button -->
+                        <center><button type="submit" class="btn btn-light btn-block mb-4" style="width: 50%">Sign Up</button></center>
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                            <p style="color: whitesmoke">Login with Google</p>
+                            <a href="{% provider_login_url 'google' %}" type="button" class="btn btn-light btn-floating mx-1">
+                                <i class="fab fa-google"></i>
+                            </a>
+
+                        </div>
+                    </form>
+                </div>
+                {% endif %}
+            </section>
         </div>
     </div>
+</div>
+{% else %}
+<meta http-equiv="REFRESH" content="0;url=/dashboard/">
+{% endif %}
 {% endblock %}

@@ -2,14 +2,14 @@
 
 {% block content %}
     <br>
-    <div style="padding-left: 5rem;padding-right: 5rem"><table class="table align-middle mb-0 bg-white">
-  <thead class="bg-light">
-    <tr>
+    <div style="padding-left: 5rem;padding-right: 5rem;"><table style="background: linear-gradient(to right, #0f2027, #203a43, #2c5364);color: whitesmoke" class="table table-bordered border-light">
+  <thead class="bg-light" style="background: linear-gradient(to right, #0f2027, #203a43, #2c5364);color: whitesmoke" >
+    <tr >
       <th>Recipient</th>
       <th>Sender ID</th>
       <th>Text</th>
       <th>Price</th>
-      <th>Total Price</th>
+      <th style="text-align: center">Total Price</th>
     </tr>
   </thead>
         {% for i in result %}
@@ -19,7 +19,7 @@
         <div class="d-flex align-items-center">
           <i style="width: 20px" class="flag flag-cambodia"></i>
           <div class="ms-3">
-            <p class="fw-bold mb-1">{{ i.Recipient }}</p>
+            <p class="fw-bold mb-1">+{{ i.Recipient }}</p>
           </div>
         </div>
       </td>
@@ -33,7 +33,7 @@
     </tr>
   {% endfor %}
     <tr>
-    <td  style="text-align: right;padding-right: 5%;color: green;background: whitesmoke" colspan="5">$ {{ totalprice }}</td>
+    <td  style="text-align: right;padding-right: 5%;color: whitesmoke;background: whitesmoke;background: linear-gradient(to right, #0f2027, #203a43, #2c5364);" colspan="5">$ {{ totalprice }}</td>
   </tr>
   </tbody>
 </table></div>

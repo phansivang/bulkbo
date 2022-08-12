@@ -1,13 +1,13 @@
 {% extends 'core.html' %}
 {% block content %}
-    <div class="container px-1 mb-12 me-10" style="width: 50%;padding-top: 10%">
-        <h4>SENDER PROFILE</h4>
+    <div class="container px-1 mb-12 me-10" style="width: 50%;padding-top: 10%;color: whitesmoke">
+        <h4>Sender Profile</h4>
         <br>
-        <form style="alignment: right" method="POST">
+        <form style="alignment: right" method="POST" id="task-form">
             {% csrf_token %}
             <div class="form-outline mb-4">
-                <input name="sendername" class="form-control" id="form4Example3" rows="4">
-                <label class="form-label" for="form4Example3">Sender ID (Optional)</label>
+                <input name="sendername" id="sendername" class="form-control"  rows="4">
+                <label class="form-label" for="form4Example3" style="color: whitesmoke">Sender ID (Optional)</label>
 
             </div>
             <input type="hidden" name="author" class="form-control" value="{{ request.user.id }}">
@@ -17,8 +17,8 @@
     <form style="alignment: right" method="POST">
             {% csrf_token %}
             <div class="form-outline mb-4">
-                <textarea name="number_list" class="form-control" id="form4Example3" rows="4"></textarea>
-                <label class="form-label" for="form4Example3">Number List (Optional) </label>
+                <textarea name="number_list" class="form-control"  rows="4"></textarea>
+                <label class="form-label" style="color: whitesmoke"  for="form4Example3">Number List (Optional) </label>
 
             </div>
             <input type="hidden" name="author" class="form-control" value="{{ request.user.id }}">
@@ -29,12 +29,14 @@
             {% csrf_token %}
             <div class="form-outline mb-4">
                 <textarea name="Text" class="form-control" id="form4Example3" rows="4"></textarea>
-                <label class="form-label" for="form4Example3">Text Max 200 (Optional) </label>
+                <label class="form-label" style="color: whitesmoke" for="form4Example3">Text Max 200 (Optional) </label>
 
             </div>
             <input type="hidden" name="author" class="form-control" value="{{ request.user.id }}">
             <button style="width: 15%;height: 25px;padding: 0px" type="submit" class="btn-right btn btn-light btn-block mb-4">SAVE</button>
 
         </form>
+
+    </div>
 
 {% endblock %}
