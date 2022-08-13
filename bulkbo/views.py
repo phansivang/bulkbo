@@ -89,6 +89,7 @@ def senderprofileview(request):
 
 @login_required(login_url='login')
 def reportviews(request):
+    global totalprice
     User = get_user_model()
     user = User.objects.get(id=request.user.id)
     list_reports = report.objects.filter(author=user)
