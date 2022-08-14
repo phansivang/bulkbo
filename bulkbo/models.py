@@ -9,7 +9,7 @@ class CustomUser(AbstractUser):
     email = models.EmailField(_('email address'), unique=True)
 
 class text(models.Model):
-    Text = models.TextField(max_length=200)
+    Text = models.TextField(max_length=250)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
     def __str__(self):
