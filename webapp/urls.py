@@ -16,11 +16,18 @@ Including another URLconf
 from django.contrib.auth import views as user
 from django.contrib import admin
 from django.urls import path,include
+from django.contrib.auth import views as user_views
 
 urlpatterns = [
     path('admin/phansivang/', admin.site.urls),
     path('',include('bulkbo.urls')),
     path('logout/',user.LogoutView.as_view(template_name='login.html'),name='logout'),
-path('accounts/', include('allauth.urls')),
+    path('accounts/', include('allauth.urls')),
+    path('password-change/',user_views.PasswordChangeView.as_view(template_name='bulkbo/reset_password/password_change.html'),name='password-change'),
+    path('password-change-done/', user_views.PasswordChangeDoneView.as_view(template_name='bulkbo/reset_password/password_change_done.html'),name='password_change_done'),
+    path('password-reset/', user_views.PasswordResetView.as_view(template_name='bulkbo/reset_password/password_reset.html'),name='password_reset'),
+    path('password-reset-done/',user_views.PasswordResetDoneView.as_view(template_name='bulkbo/reset_password/password_reset_done.html'),name='password_reset_done'),
+    path('password-reset-confirm/<uidb64>/<token>/',user_views.PasswordResetConfirmView.as_view(template_name='bulkbo/reset_password/password_reset_confirm.html'),name='password_reset_confirm'),
+    path('password-reset-complete/',user_views.PasswordResetCompleteView.as_view(template_name='bulkbo/reset_password/password_reset_complete.html'),name='password_reset_complete')
 
 ]

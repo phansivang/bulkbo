@@ -1,11 +1,12 @@
-import requests
+def print_kwargs(**kwargs):
+    for key in kwargs:
+        print("The key {} holds {} value".format(key, kwargs[key]))
 
-url = "https://verificationapi-v1.sinch.com/verification/v1/verifications"
-payload="{\n  \"identity\": {\n  \"type\": \"number\",\n  \"endpoint\": \"+85566362218\"\n  },\n  \"method\": \"sms\"\n}"
-headers = {
-  'Content-Type': 'application/json',
-  'Authorization': 'Basic ODIxNGFhNGQtNTkzYS00NDBiLTlmMTQtYzU3MmViYzFjZDhiOmhBRFhoS09uUkVhTGV2dmJLamw4L1E9PQ=='
-}
-response = requests.request("POST", url, headers=headers, data=payload)
+print_kwargs(a=1, b=2, c="Some Text")
 
-print(response.elapsed)
+def hello(**kwargs):
+  for i in kwargs:
+    print(i)
+
+
+hello(a=1,b=2)

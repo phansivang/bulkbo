@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from .forms import register, LoginForm, sender_name_form, nunber_list_form,text_list_form
 from .models import list_numbers, sender_name, UserAPI, report,text
 from django.contrib.auth import get_user_model
-
+from django.http import HttpResponse
 
 @login_required(login_url='login')
 def homepage(request):
@@ -39,7 +39,7 @@ def homepage(request):
         # start request data
 
         send_now = requests.get(
-            f'http://gateway.sms77.io/api/sms?p={user_api}&to={str(list_number.first())}&text={str(list_Text.first())}&from={str(list_sender_name.first())}&debug=1&json=1')
+            f'http://gateway.sms77.io/api/sms?p={user_api}&to={str(list_number.first())}&text={str(list_Text.first())}&from={str(list_sender_name.first())}&json=1')
         for all in send_now.json()['messages']:
             print(all)
             reports = report.objects.create(author=user, Recipient=all['recipient'], SenderID=all['sender'],
@@ -89,18 +89,25 @@ def senderprofileview(request):
 
 @login_required(login_url='login')
 def reportviews(request):
-    global totalprice
-    User = get_user_model()
-    user = User.objects.get(id=request.user.id)
-    list_reports = report.objects.filter(author=user)
-    for i in list_reports:
-        totalprice = i.TotalPrice
-        print(totalprice)
-    user_api = UserAPI.objects.filter(author=request.user.id).first()
-    get_balance = requests.get(
-        f'https://gateway.sms77.io/api/balance?p={user_api}')
-    return render(request, 'reports.html',{'result':list_reports,'totalprice':totalprice,'balance':get_balance.text})
-
+    try:
+        User = get_user_model()
+        user = User.objects.get(id=request.user.id)
+        list_reports = report.objects.filter(author=user)
+        for i in list_reports:
+            totalprice = i.TotalPrice
+            print(totalprice)
+        user_api = UserAPI.objects.filter(author=request.user.id).first()
+        get_balance = requests.get(
+            f'https://gateway.sms77.io/api/balance?p={user_api}')
+        return render(request, 'reports.html',
+                      {'result': list_reports, 'totalprice': totalprice, 'balance': get_balance.text})
+    except:
+        context = """
+        No report
+        
+        <meta http-equiv="REFRESH" content="0;url=/dashboard/">
+        """
+        return HttpResponse(context)
 
 def getstartview(request):
     return render(request,'main.html')
